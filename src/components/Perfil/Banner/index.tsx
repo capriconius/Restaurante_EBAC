@@ -4,10 +4,10 @@ import Banner from '../../../assets/img/Banner.png'
 export const BannerPerfil = () => {
   return (
     <BannerImg style={{ backgroundImage: `url(${Banner})` }}>
-      <div className="containerOne">
+      <div className="container">
         <Titulo>italiana</Titulo>
       </div>
-      <div className="containerOne">
+      <div className="container">
         <SubTitulo>Bella Tavola Italiana</SubTitulo>
       </div>
     </BannerImg>

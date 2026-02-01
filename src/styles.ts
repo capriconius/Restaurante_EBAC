@@ -25,8 +25,4 @@ export const GlobalCss = createGlobalStyle`
    width:100%;
    margin:0 auto;
 }
-   .containerOne {
-   max-width: 1600px;
-   width:100%;
-   margin:0 auto;
 `

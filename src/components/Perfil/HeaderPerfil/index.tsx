@@ -9,7 +9,7 @@ import {
 export const HeaderPerfil = () => {
   return (
     <BackgroundPerfil>
-      <div className="containerOne">
+      <div className="container">
         <ContainerPerfil>
           <nav>
             <PerfilLink>

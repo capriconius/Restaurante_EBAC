@@ -6,6 +6,8 @@ export const Card = styled.div`
   color: ${cores.beige};
   top: 498px;
   padding: 8px;
+  width: 320;
+  height: 338;
 `
 
 export const Titulo = styled.h2`
