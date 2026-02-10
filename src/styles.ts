@@ -1,14 +1,20 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const cores = {
-  rosaSalmao: '#E66767',
-  branco: '#FFFFFF',
-  beige: '#FFEBD9',
-  beigeClaro: '#FFF8F2'
+  branca: '#fff',
+  salmao: '#E66767',
+  salmaoClaro: '#FFEBD9',
+  corDeFundo: '#FFF8F2'
+}
+
+export const breackpoints = {
+  desktop: '1024px',
+  tablet: '768px',
+  mobile: '480px'
 }
 
 export const GlobalCss = createGlobalStyle`
-  * {
+  *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -16,13 +22,19 @@ export const GlobalCss = createGlobalStyle`
   }
 
   body {
-    background-color: ${cores.beigeClaro};
-    color: ${cores.rosaSalmao};
+    background-color: ${cores.corDeFundo};
+    color: ${cores.salmao};
   }
 
-  .container {
-   max-width: 1024px;
-   width:100%;
-   margin:0 auto;
+.container{
+  max-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
+
+  @media (max-width: ${breackpoints.desktop}){
+    max-width: 80%;
+  }
+
 }
+
 `

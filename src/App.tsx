@@ -1,17 +1,23 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { GlobalCss } from './styles'
-import Rotas from './routes'
-import PerfilProdut from './components/pages/PerfilPag'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import 'react-toastify/dist/ReactToastify.css'
+
+import Home from './components/Pages/Home'
+import Perfil from './components/Pages/Perfil'
+import Footer from './components/Footer'
+import { store } from './store'
+import { Provider } from 'react-redux'
 
 function App() {
   return (
-    <BrowserRouter>
-      <GlobalCss />
-      <Routes>
-        <Route path="/" element={<Rotas />} />
-        <Route path="/Perfilprodut" element={<PerfilProdut />} />
-      </Routes>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/perfil/:id" element={<Perfil />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </Provider>
   )
 }
 
