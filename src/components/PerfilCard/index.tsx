@@ -7,7 +7,7 @@ type Props = {
   onOpen: () => void
 }
 
-const ProductCard = ({ nome, foto, descricao, onOpen }: Props) => (
+const PerfilCard = ({ nome, foto, descricao, onOpen }: Props) => (
   <Card>
     <Foto src={foto} alt={nome} />
     <Titulo>{nome}</Titulo>
@@ -16,4 +16,4 @@ const ProductCard = ({ nome, foto, descricao, onOpen }: Props) => (
   </Card>
 )
 
-export default ProductCard
+export default PerfilCard

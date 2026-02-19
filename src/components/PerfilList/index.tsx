@@ -17,7 +17,7 @@ type Props = {
   pratos: Prato[]
 }
 
-const ProductList = ({ pratos }: Props) => {
+const PerfilList = ({ pratos }: Props) => {
   const [modal, setModal] = useState({
     isVisible: false,
     data: null as Prato | null
@@ -52,4 +52,4 @@ const ProductList = ({ pratos }: Props) => {
   )
 }
 
-export default ProductList
+export default PerfilList

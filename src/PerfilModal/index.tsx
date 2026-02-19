@@ -1,7 +1,11 @@
-import closeIcon from '../assets/images/close.png'
+import { useDispatch } from 'react-redux'
+import { toast } from 'react-toastify'
+
+import close from '../assets/images/close.png'
 import { Prato } from '../components/PerfilList'
 import { formataPreco } from '../utils/formatters'
 import { ModalContainer, Modal, BotaoModal, ModalContent } from './styles'
+import { add, open } from '../store/reducers/cart'
 
 type Props = {
   product: Prato | null
@@ -9,35 +13,42 @@ type Props = {
   onClose: () => void
 }
 
-const ProductModal = ({ product, isVisible, onClose }: Props) => {
-  const handleConfirm = () => {
-    onClose()
+const PerfiltModal = ({ product, isVisible, onClose }: Props) => {
+  const dispatch = useDispatch()
+
+  const addItem = () => {
+    if (product) {
+      dispatch(add(product))
+      onClose()
+
+      toast.success('Item adicionao! Ver carrinho', {
+        onClick: () => dispatch(open()),
+        icon: <span>🛒</span>,
+        position: 'bottom-right',
+        autoClose: 4000,
+        pauseOnHover: true,
+        draggable: true
+      })
+    }
   }
 
   if (!isVisible || !product) return null
 
   return (
-    <Modal className="visivel" role="dialog" aria-modal="true">
+    <Modal className="visivel">
       <div className="overlay" onClick={onClose}></div>
       <ModalContainer>
-        <button
-          type="button"
-          onClick={onClose}
-          aria-label="Fechar modal"
-          style={{ background: 'none', border: 'none', cursor: 'pointer' }}
-        >
-          <img src={closeIcon} alt="ícone de fechar" />
-        </button>
+        <img onClick={onClose} src={close} alt="ícone de fechar" />
         <ModalContent>
           <img src={product.foto} alt={product.nome} />
           <div>
-            <h3>{product.nome}</h3>
+            <h4>{product.nome}</h4>
             <p>{product.descricao}</p>
             <p>
               Serve de <span>{product.porcao}</span>
             </p>
-            <BotaoModal onClick={handleConfirm}>
-              Confirmar - {formataPreco(product.preco)}
+            <BotaoModal onClick={addItem}>
+              Adicionar ao carrinho - {formataPreco(product.preco)}
             </BotaoModal>
           </div>
         </ModalContent>
@@ -46,4 +57,4 @@ const ProductModal = ({ product, isVisible, onClose }: Props) => {
   )
 }
 
-export default ProductModal
+export default PerfiltModal

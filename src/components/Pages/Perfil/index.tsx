@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 import Banner from '../../Banner'
-import HeaderPerfil from '../../PerfilHerder'
+import PerfilHerder from '../../PerfilHerder'
 import ProductList from '../../PerfilList'
 import { useGetPratosQuery } from '../../../services/api'
 
@@ -13,7 +13,7 @@ const Perfil = () => {
 
   return (
     <>
-      <HeaderPerfil />
+      <PerfilHerder />
       <Banner
         capa={restaurante.capa}
         categoria={restaurante.tipo}
